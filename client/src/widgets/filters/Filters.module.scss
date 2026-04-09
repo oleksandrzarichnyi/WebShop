@@ -1,0 +1,32 @@
+@use '../../shared/styles/variables.scss' as *;
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  max-width: 295px;
+  max-height: 1220px;
+  line-height: 1;
+}
+
+.title {
+  font-family: $font-satoshi;
+  font-weight: $font-bold;
+  font-size: 20px;
+}
+
+.text {
+  font-size: 16px;
+  font-family: $font-satoshi;
+  font-weight: $font-regular;
+  color: rgba(0, 0, 0, 0.60);
+}
+
+.separation-line {
+  width: 247px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+}

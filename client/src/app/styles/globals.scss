@@ -1,0 +1,164 @@
+.container-default {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+/* Satoshi - Regular */
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Satoshi/Satoshi-Regular.woff") format("woff");
+}
+
+/* Satoshi - Italic */
+@font-face {
+  font-family: "Satoshi";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Satoshi/Satoshi-Italic.woff") format("woff");
+}
+
+/* Satoshi - Light */
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Satoshi/Satoshi-Light.woff") format("woff");
+}
+
+/* Satoshi - Light Italic */
+@font-face {
+  font-family: "Satoshi";
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/Satoshi/Satoshi-LightItalic.woff") format("woff");
+}
+
+/* Satoshi - Medium */
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Satoshi/Satoshi-Medium.woff") format("woff");
+}
+
+/* Satoshi - Medium Italic */
+@font-face {
+  font-family: "Satoshi";
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/Satoshi/Satoshi-MediumItalic.woff") format("woff");
+}
+
+/* Satoshi - Bold */
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Satoshi/Satoshi-Bold.woff") format("woff");
+}
+
+/* Satoshi - Bold Italic */
+@font-face {
+  font-family: "Satoshi";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/Satoshi/Satoshi-BoldItalic.woff") format("woff");
+}
+
+/* Satoshi - Black */
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/Satoshi/Satoshi-Black.woff") format("woff");
+}
+
+/* Satoshi - Black Italic */
+@font-face {
+  font-family: "Satoshi";
+  font-style: italic;
+  font-weight: 900;
+  src: url("/fonts/Satoshi/Satoshi-BlackItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-Regular.woff2") format("woff2"),
+       url("/fonts/IntegralCF-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-Medium.woff2") format("woff2"),
+       url("/fonts/IntegralCF-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-DemiBold.woff2") format("woff2"),
+       url("/fonts/IntegralCF-DemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-Bold.woff2") format("woff2"),
+       url("/fonts/IntegralCF-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-ExtraBold.woff2") format("woff2"),
+       url("/fonts/IntegralCF-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-Heavy.woff2") format("woff2"),
+       url("/fonts/IntegralCF-Heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-RegularOblique.woff2") format("woff2"),
+       url("/fonts/IntegralCF-RegularOblique.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-MediumOblique.woff2") format("woff2"),
+       url("/fonts/IntegralCF-MediumOblique.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-BoldOblique.woff2") format("woff2"),
+       url("/fonts/IntegralCF-BoldOblique.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Integral CF";
+  src: url("/fonts/IntegralCF-ExtraBoldOblique.woff2") format("woff2"),
+       url("/fonts/IntegralCF-ExtraBoldOblique.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}

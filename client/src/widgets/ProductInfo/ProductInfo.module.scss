@@ -1,0 +1,31 @@
+@use "../../shared/styles/variables.scss" as *;
+
+* {
+  line-height: 1;
+}
+
+.title {
+  font-family: $font-integral;
+  font-weight: $font-integral-bold;
+  font-size: 40px;
+}
+
+.price {
+  font-family: $font-satoshi;
+  font-weight: $font-bold;
+  font-size: 32px;
+}
+
+.text-secondary {
+  color: $secondary-color;
+  font-family: $font-satoshi;
+  font-weight: $font-regular;
+  font-size: 16px;
+}
+
+.separation-line {
+  background-color: #e6e6e6;
+  width: 590px;
+  height: 1px;
+  margin: 24px 0;
+}

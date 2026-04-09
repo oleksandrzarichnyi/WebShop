@@ -1,0 +1,49 @@
+@use '../../shared/styles/variables.scss' as *;
+
+.header-bg {
+  width: 100%;
+  height: 663px;
+  background-color: #F2F0F1;
+  display: flex;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-image: url(../../shared/assets/images/header-img.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: -133px;
+  height: 100%;
+}
+
+.header-title {
+  font-size: 64px;
+  font-family: $font-integral;
+  font-weight: $font-integral-bold;
+  line-height: 1;
+  padding-top: 100px;
+}
+
+.header-info {
+  max-width: 545px;
+  font-family: $font-satoshi;
+  font-size: 16px;
+  font-weight: $font-regular;
+  color: $secondary-color;
+}
+
+.header-brands {
+  display: flex;
+  width: 100%;
+  height: 122px;
+  background-color: black;
+
+  &--container {
+    display: flex;
+    height: 100%; 
+    align-items: center;
+    justify-content: space-between;
+  }
+}

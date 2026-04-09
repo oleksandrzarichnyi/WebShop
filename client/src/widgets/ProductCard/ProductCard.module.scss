@@ -1,0 +1,7 @@
+@use '../../shared/styles/variables.scss' as *;
+
+.text-bold {
+  font-weight: $font-bold;
+  font-size: 20px;
+  font-family: $font-satoshi;
+}
