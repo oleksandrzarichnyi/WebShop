@@ -3,7 +3,7 @@ import Header from "../../widgets/Header/Header"
 import Filters from "../../widgets/filters/Filters"
 import ProductList from "../../widgets/product-list/ProductList"
 
-export default function ShopPage() {
+export default function CatalogPage() {
   return (
     <>
       <Header />

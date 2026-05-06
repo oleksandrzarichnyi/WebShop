@@ -12,13 +12,13 @@ export default function Header() {
           <Link to="/"><img src={ShopLogo} alt="" /></Link>
           <ul className={styles["nav-list"]}>
             <li>
-              <Link className={styles["nav-link"]} to="/shop">Shop</Link>
+              <Link className={styles["nav-link"]} to="/catalog">Shop</Link>
             </li>
             <li>
-              <Link className={styles["nav-link"]} to="/shop">New Arrivals</Link>
+              <Link className={styles["nav-link"]} to="/catalog">New Arrivals</Link>
             </li>
             <li>
-              <Link className={styles["nav-link"]} to="/shop">On Sale</Link>
+              <Link className={styles["nav-link"]} to="/catalog">On Sale</Link>
             </li>
             <li>
               <Link className={styles["nav-link"]} to="/product">Brands</Link>
