@@ -1,0 +1,19 @@
+@use '@/shared/styles/variables.scss' as *;
+
+.price-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.value {
+  font-size: 16px;
+  font-family: $font-satoshi;
+  font-weight: $font-bold;
+  color: rgba(0, 0, 0, 1);
+}
