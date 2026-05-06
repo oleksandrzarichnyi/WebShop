@@ -1,5 +1,6 @@
 import styles from './Filters.module.scss'
 import FiltersIcon from '../../shared/assets/icons/filters-icon.svg'
+import { CategoryFilter } from '@/features/filters/ui/CategoryFilter'
 
 export default function Filters() {
   return (
@@ -10,28 +11,7 @@ export default function Filters() {
           <img src={FiltersIcon} alt="" />
         </div>
         <div className={styles['separation-line']}></div>
-        <div className="flex flex-col gap-[20px]">
-          <div className="flex justify-between">
-            <p className={styles['text']}>T-shirts</p>
-            <input type="checkbox" />
-          </div>
-          <div className="flex justify-between">
-            <p className={styles['text']}>Shorts</p>
-            <input type="checkbox" />
-          </div>
-          <div className="flex justify-between">
-            <p className={styles['text']}>Shirts</p>
-            <input type="checkbox" />
-          </div>
-          <div className="flex justify-between">
-            <p className={styles['text']}>Hoodie</p>
-            <input type="checkbox" />
-          </div>
-          <div className="flex justify-between">
-            <p className={styles['text']}>Jeans</p>
-            <input type="checkbox" />
-          </div>
-        </div>
+        <CategoryFilter />
         <div className={styles['separation-line']}></div>
         <p className={styles['title']}>Price</p>
         <div className={styles['separation-line']}></div>

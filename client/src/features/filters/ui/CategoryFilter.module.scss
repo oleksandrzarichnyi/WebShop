@@ -1,0 +1,26 @@
+@use '@/shared/styles/variables.scss' as *;
+
+.category-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.text {
+  font-size: 16px;
+  font-family: $font-satoshi;
+  font-weight: $font-regular;
+  color: rgba(0, 0, 0, 0.60);
+}
+
+.text--active {
+  font-weight: $font-bold;
+  color: rgba(0, 0, 0, 1);
+}
