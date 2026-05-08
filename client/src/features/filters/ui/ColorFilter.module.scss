@@ -1,0 +1,27 @@
+.color-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.circle {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s;
+}
+
+.check {
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  user-select: none;
+
+  &--dark {
+    filter: invert(1);
+  }
+}
