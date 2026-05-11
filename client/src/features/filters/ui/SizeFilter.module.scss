@@ -1,0 +1,28 @@
+@use '@/shared/styles/variables.scss' as *;
+
+.size-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  height: 39px;
+  padding: 0 20px;
+  border-radius: 62px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: $font-satoshi;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.60);
+  background-color: #F0F0F0;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.btn--active {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 500;
+}

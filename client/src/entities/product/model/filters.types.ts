@@ -1,5 +1,5 @@
 export interface ProductFilters {
-  category: string | null
+  categories: string[]
   priceRange: [number, number] | null
   colors: string[]
   sizes: string[]
@@ -11,7 +11,7 @@ export interface PriceRange {
 }
 
 export const DEFAULT_FILTERS: ProductFilters = {
-  category: null,
+  categories: [],
   priceRange: null,
   colors: [],
   sizes: []

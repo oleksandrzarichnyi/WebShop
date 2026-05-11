@@ -1,6 +1,6 @@
 import styles from './Filters.module.scss'
 import FiltersIcon from '../../shared/assets/icons/filters-icon.svg'
-import { ColorFilter, PriceFilter, CategoryFilter } from '@/features/filters'
+import { ColorFilter, PriceFilter, CategoryFilter, SizeFilter } from '@/features/filters'
 
 export default function Filters() {
   return (
@@ -20,7 +20,7 @@ export default function Filters() {
         <ColorFilter />
         <div className={styles['separation-line']}></div>
         <p className={styles['title']}>Size</p>
-        <div className={styles['separation-line']}></div>
+        <SizeFilter />
       </div>
     </>
   )

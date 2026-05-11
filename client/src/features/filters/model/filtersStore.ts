@@ -3,7 +3,7 @@ import { type ProductFilters, DEFAULT_FILTERS } from '../../../entities/product'
 
 interface FiltersStore {
   filters: ProductFilters
-  setCategory: (category: string | null) => void
+  toggleCategory: (category: string) => void
   setPriceRange: (range: [number, number] | null) => void
   toggleColor: (color: string) => void
   toggleSize: (size: string) => void
@@ -13,8 +13,13 @@ interface FiltersStore {
 export const useFiltersStore = create<FiltersStore>((set) => ({
   filters: DEFAULT_FILTERS,
 
-  setCategory: (category) =>
-    set((state) => ({ filters: { ...state.filters, category } })),
+  toggleCategory: (category) =>
+    set((state) => {
+      const categories = state.filters.categories.includes(category)
+        ? state.filters.categories.filter((c) => c !== category)
+        : [...state.filters.categories, category]
+      return { filters: { ...state.filters, categories } }
+    }),
 
   setPriceRange: (priceRange) => 
     set((state) => ({ filters: { ...state.filters, priceRange } })),
