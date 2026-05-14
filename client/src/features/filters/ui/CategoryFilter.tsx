@@ -5,12 +5,12 @@ import styles from './CategoryFilter.module.scss'
 const CATEGORIES = ['T-shirts', 'Shorts', 'Shirts', 'Hoodie', 'Jeans']
 
 export const CategoryFilter = () => {
-  const { filters, toggleCategory } = useFiltersStore()
+  const { pendingFilters, toggleCategory } = useFiltersStore()
 
   return (
     <div className={styles['category-filter']}>
       {CATEGORIES.map((category) => {
-        const isSelected = filters.categories.includes(category)
+        const isSelected = pendingFilters.categories.includes(category)
 
         return (
           <div

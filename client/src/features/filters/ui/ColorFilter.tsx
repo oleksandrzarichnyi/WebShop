@@ -11,12 +11,12 @@ const COLORS = [
 ]
 
 export const ColorFilter = () => {
-  const { filters, toggleColor } = useFiltersStore()
+  const { pendingFilters, toggleColor } = useFiltersStore()
 
   return (
     <div className={styles['color-filter']}>
       {COLORS.map((color) => {
-        const isSelected = filters.colors.includes(color.id)
+        const isSelected = pendingFilters.colors.includes(color.id)
 
         return (
           <div

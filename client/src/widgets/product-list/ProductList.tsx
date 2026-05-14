@@ -1,15 +1,8 @@
 import ProductCard from "../ProductCard/ProductCard"
-import { useEffect, useState } from "react"
-import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "../../shared/api/productsApi";
+import { useProducts } from "@/entities/product"
 
 export default function ProductList() {
-  const { data: productsData = [] } = useQuery({
-    queryKey: ['products'],
-    queryFn: getProducts,
-  });
-
-  console.log(productsData);
+  const { data: products, isLoading } = useProducts();
 
   return (
     <>
@@ -18,7 +11,8 @@ export default function ProductList() {
           <p className="">Casual</p>
         </div>
         <div className="flex flex-wrap gap-[20px]">
-          {productsData.map((product: any) => {
+          {isLoading && <p>Loading...</p>}
+          {products?.map((product: any) => {
             return (
               <ProductCard 
                 key={product.id} 

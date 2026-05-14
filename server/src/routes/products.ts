@@ -4,8 +4,44 @@ import { db } from '../db';
 const router = Router();
 
 router.get('/', async (req: Request, res: Response) => {
-  const [rows] = await db.execute('SELECT * FROM products');
-  res.json(rows);
+  const { categories, priceMin, priceMax, colors, sizes } = req.query;
+
+  let query = 'SELECT * FROM products WHERE 1=1'; 
+  const params: (string | number)[] = []
+
+  if (categories) {
+    const list = (categories as string).split(',');
+    const placeholders = list.map(() => '?').join(', ');
+    query += ` AND category IN (${placeholders})`;
+    params.push(...list); 
+  }
+
+  if (priceMin) {
+    query += ' AND price >= ?';
+    params.push(Number(priceMin));
+  }
+
+  if (priceMax) {
+    query += ' AND price <= ?';
+    params.push(Number(priceMax));
+  }
+
+  if (colors) {
+    const list = (colors as string).split(',');
+    const placeholders = list.map(() => '?').join(', ');
+    query += ` AND color IN (${placeholders})`;
+    params.push(...list)
+  }
+
+  if (sizes) {
+    const list = (sizes as string).split(',');
+    const placeholders = list.map(() => '?').join(', ');
+    query += ` AND size IN (${placeholders})`;
+    params.push(...list)
+  }
+
+  const [rows] = await db.execute(query, params);
+  res.json(rows)
 });
 
 export default router;

@@ -7,9 +7,9 @@ const MIN_PRICE = 0;
 const MAX_PRICE = 100;
 
 export const PriceFilter = () => {
-  const { filters, setPriceRange } = useFiltersStore();
+  const { pendingFilters, setPriceRange } = useFiltersStore();
 
-  const range = filters.priceRange ?? [MIN_PRICE, MAX_PRICE];
+  const range = pendingFilters.priceRange ?? [MIN_PRICE, MAX_PRICE];
 
   const handleChange = (value: number | number[]) => {
     if (Array.isArray(value)) {
