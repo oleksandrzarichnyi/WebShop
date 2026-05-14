@@ -3,37 +3,49 @@ import { type ProductFilters, DEFAULT_FILTERS } from '../../../entities/product'
 
 interface FiltersStore {
   filters: ProductFilters
-  setCategory: (category: string | null) => void
+  pendingFilters: ProductFilters
+  toggleCategory: (category: string) => void
   setPriceRange: (range: [number, number] | null) => void
   toggleColor: (color: string) => void
   toggleSize: (size: string) => void
+  applyFilters: () => void
   resetFilters: () => void
 }
 
 export const useFiltersStore = create<FiltersStore>((set) => ({
   filters: DEFAULT_FILTERS,
+  pendingFilters: DEFAULT_FILTERS,
 
-  setCategory: (category) =>
-    set((state) => ({ filters: { ...state.filters, category } })),
-
-  setPriceRange: (priceRange) => 
-    set((state) => ({ filters: { ...state.filters, priceRange } })),
-
-  toggleColor: (color) => 
+  toggleCategory: (category) =>
     set((state) => {
-      const colors = state.filters.colors.includes(color)
-        ? state.filters.colors.filter((c) => c !== color)
-        : [...state.filters.colors, color]
-      return { filters: { ...state.filters, colors } }
+      const categories = state.pendingFilters.categories.includes(category)
+        ? state.pendingFilters.categories.filter((c) => c !== category)
+        : [...state.pendingFilters.categories, category]
+      return { pendingFilters: { ...state.pendingFilters, categories } }
     }),
 
-  toggleSize: (size) => 
+  setPriceRange: (priceRange) =>
+    set((state) => ({ pendingFilters: { ...state.pendingFilters, priceRange } })),
+
+  toggleColor: (color) =>
     set((state) => {
-      const sizes = state.filters.sizes.includes(size)
-        ? state.filters.sizes.filter((s) => s !== size)
-        : [...state.filters.sizes, size]
-      return { filters: { ...state.filters, sizes } }
+      const colors = state.pendingFilters.colors.includes(color)
+        ? state.pendingFilters.colors.filter((c) => c !== color)
+        : [...state.pendingFilters.colors, color]
+      return { pendingFilters: { ...state.pendingFilters, colors } }
     }),
 
-    resetFilters: () => set({ filters: DEFAULT_FILTERS }),
+  toggleSize: (size) =>
+    set((state) => {
+      const sizes = state.pendingFilters.sizes.includes(size)
+        ? state.pendingFilters.sizes.filter((s) => s !== size)
+        : [...state.pendingFilters.sizes, size]
+      return { pendingFilters: { ...state.pendingFilters, sizes } }
+    }),
+
+  applyFilters: () =>
+    set((state) => ({ filters: state.pendingFilters })),
+
+  resetFilters: () =>
+    set({ filters: DEFAULT_FILTERS, pendingFilters: DEFAULT_FILTERS }),
 }))

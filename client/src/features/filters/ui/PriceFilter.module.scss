@@ -1,0 +1,39 @@
+@use '@/shared/styles/variables.scss' as *;
+
+.price-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  :global(.rc-slider-rail) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  :global(.rc-slider-track) {
+    background-color: black;
+  }
+
+  :global(.rc-slider-handle) {
+    background-color: black;
+    border-color: black;
+    opacity: 1;
+
+    &:hover, &:active {
+      border-color: black;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.value {
+  font-size: 16px;
+  font-family: $font-satoshi;
+  font-weight: $font-bold;
+  color: rgba(0, 0, 0, 1);
+}
+
