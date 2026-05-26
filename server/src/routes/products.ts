@@ -6,8 +6,13 @@ const router = Router();
 router.get('/', async (req: Request, res: Response) => {
   const { categories, priceMin, priceMax, colors, sizes } = req.query;
 
-  let query = 'SELECT * FROM products WHERE 1=1'; 
-  const params: (string | number)[] = []
+  let query = `
+    SELECT DISTINCT products.* 
+    FROM products
+    LEFT JOIN products_sizes ON products.id = products_sizes.product_id
+    WHERE 1=1
+  `;
+  const params: (string | number)[] = [];
 
   if (categories) {
     const list = (categories as string).split(',');
@@ -36,7 +41,7 @@ router.get('/', async (req: Request, res: Response) => {
   if (sizes) {
     const list = (sizes as string).split(',');
     const placeholders = list.map(() => '?').join(', ');
-    query += ` AND size IN (${placeholders})`;
+    query += ` AND products_sizes.size IN (${placeholders})`;
     params.push(...list)
   }
 

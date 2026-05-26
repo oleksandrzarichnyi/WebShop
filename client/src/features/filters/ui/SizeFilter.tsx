@@ -1,7 +1,7 @@
 import { useFiltersStore } from '../model/filtersStore'
 import styles from './SizeFilter.module.scss'
 
-const SIZES = ['XX-Small', 'X-Small', 'Small', 'Medium', 'Large', 'X-Large', 'XX-Large', '3X-Large', '4X-Large']
+const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 
 export const SizeFilter = () => {
   const { pendingFilters, toggleSize } = useFiltersStore()
