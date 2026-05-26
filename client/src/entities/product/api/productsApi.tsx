@@ -1,8 +1,9 @@
 import type { ProductFilters } from "@/entities/product";
+import type { SortOrder } from "@/features/sort";
 
 const BASE_URL = 'http://localhost:3001';
 
-export async function getProducts(filters: ProductFilters) {
+export async function getProducts(filters: ProductFilters, sortOrder: SortOrder) {
   const params = new URLSearchParams();
 
   if (filters.categories.length > 0) {
@@ -20,6 +21,10 @@ export async function getProducts(filters: ProductFilters) {
 
   if (filters.sizes.length > 0) {
     params.set('sizes', filters.sizes.join(','));
+  }
+
+  if (sortOrder) {
+    params.set('sortOrder', sortOrder);
   }
 
   const res = await fetch(`${BASE_URL}/products?${params.toString()}`);
