@@ -1,3 +1,5 @@
 export type { ProductFilters, PriceRange } from './model/filters.types'
 export { DEFAULT_FILTERS } from './model/filters.types'
 export { useProducts } from './api/useProducts'
+export { useProduct } from './api/useProduct'
+export { getProductById } from './api/productsApi'

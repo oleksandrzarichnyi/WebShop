@@ -55,4 +55,20 @@ router.get('/', async (req: Request, res: Response) => {
   res.json(rows)
 });
 
+router.get('/:id', async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const [rows] = await db.execute<any[]>(
+    'SELECT * FROM products WHERE id = ?',
+    [Number(id)]
+  );
+
+  if (rows.length === 0) {
+    res.status(404).json({ message: 'Product not found' });
+    return;
+  }
+
+  res.json(rows[0]);
+});
+
 export default router;

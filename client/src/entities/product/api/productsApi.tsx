@@ -30,3 +30,8 @@ export async function getProducts(filters: ProductFilters, sortOrder: SortOrder)
   const res = await fetch(`${BASE_URL}/products?${params.toString()}`);
   return res.json();
 }
+
+export async function getProductById(id: string) {
+  const res = await fetch(`${BASE_URL}/products/${id}`);
+  return res.json();
+}

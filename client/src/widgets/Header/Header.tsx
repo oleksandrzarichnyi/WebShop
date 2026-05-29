@@ -15,13 +15,7 @@ export default function Header() {
               <Link className={styles["nav-link"]} to="/catalog">Shop</Link>
             </li>
             <li>
-              <Link className={styles["nav-link"]} to="/catalog">New Arrivals</Link>
-            </li>
-            <li>
-              <Link className={styles["nav-link"]} to="/catalog">On Sale</Link>
-            </li>
-            <li>
-              <Link className={styles["nav-link"]} to="/product">Brands</Link>
+              <Link className={styles["nav-link"]} to="/catalog">About Us</Link>
             </li>
           </ul>
           <div className={styles["searchbar"]}></div>
