@@ -13,10 +13,10 @@ export default function Header() {
           <Link to="/"><img src={ShopLogo} alt="" /></Link>
           <ul className={styles["nav-list"]}>
             <li>
-              <Link className={styles["nav-link"]} to="/catalog">Shop</Link>
+              <Link className={styles["nav-link"]} to="/catalog">SHOP</Link>
             </li>
             <li>
-              <Link className={styles["nav-link"]} to="/catalog">About Us</Link>
+              <Link className={styles["nav-link"]} to="/catalog">ABOUT US</Link>
             </li>
           </ul>
           <SearchInput />

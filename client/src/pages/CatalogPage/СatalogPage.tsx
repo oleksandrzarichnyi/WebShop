@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import Header from "../../widgets/Header/Header"
 import Filters from "../../widgets/filters/Filters"
 import ProductList from "../../widgets/product-list/ProductList"

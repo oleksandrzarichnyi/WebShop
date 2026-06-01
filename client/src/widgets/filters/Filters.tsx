@@ -26,7 +26,7 @@ export default function Filters() {
         <div className={styles['separation-line']}></div>
         <p className={styles['title']}>Size</p>
         <SizeFilter />
-        <div className="mt-[10px] flex flex-col items-center gap-[15px]">
+        <div className="mt-[10px] flex flex-col items-center gap-[8px]">
           <Button
             variant="contained"
             fullWidth

@@ -7,12 +7,17 @@ export default function ProductList() {
   const { data: products, isLoading } = useProducts();
 
   return (
-    <div className="flex flex-col gap-[25px]">
+    <div className="flex flex-col gap-[25px] w-[100%]">
       <div className="flex justify-end">
         <SortSelect />
       </div>
       <div className="flex flex-wrap gap-[20px]">
         {isLoading && <p>Loading...</p>}
+
+        {!isLoading && products?.length === 0 && (
+          <p>No products match your current filters.</p>
+        )}
+        
         {products?.map((product: any) => (
           <Link to={`/product/${product.id}`} key={product.id}>
             <ProductCard

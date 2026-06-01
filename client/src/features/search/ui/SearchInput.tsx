@@ -60,6 +60,8 @@ export const SearchInput = () => {
               borderRadius: '62px',
               backgroundColor: '#F0F0F0',
               fontFamily: 'Satoshi',
+              paddingLeft: '15px',
+              gap: '5px',
               fontSize: '16px',
               '& fieldset': { border: 'none' },
               '&:hover fieldset': { border: 'none' },
