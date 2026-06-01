@@ -4,8 +4,8 @@ import { getProducts } from "./productsApi"
 import { useSortStore } from "@/features/sort"
 
 export const useProducts = () => {
-  const { filters } = useFiltersStore()
-  const { sortOrder } = useSortStore()
+  const { filters } = useFiltersStore();
+  const { sortOrder } = useSortStore();
 
   return useQuery({
     queryKey: ['products', filters, sortOrder],

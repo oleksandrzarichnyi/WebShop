@@ -3,7 +3,7 @@ import type { SortOrder } from "@/features/sort";
 
 const BASE_URL = 'http://localhost:3001';
 
-export async function getProducts(filters: ProductFilters, sortOrder: SortOrder) {
+export async function getProducts(filters: ProductFilters, sortOrder: SortOrder, query: string = '') {
   const params = new URLSearchParams();
 
   if (filters.categories.length > 0) {
@@ -27,11 +27,22 @@ export async function getProducts(filters: ProductFilters, sortOrder: SortOrder)
     params.set('sortOrder', sortOrder);
   }
 
+  if (query) {
+    params.set('query', query);
+  }
+
   const res = await fetch(`${BASE_URL}/products?${params.toString()}`);
   return res.json();
 }
 
 export async function getProductById(id: string) {
   const res = await fetch(`${BASE_URL}/products/${id}`);
+  return res.json();
+}
+
+export async function searchProducts(query: string) {
+  const params = new URLSearchParams();
+  params.set('query', query);
+  const res = await fetch(`${BASE_URL}/products?${params.toString()}`);
   return res.json();
 }

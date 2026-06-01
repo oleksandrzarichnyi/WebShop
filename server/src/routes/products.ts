@@ -4,7 +4,7 @@ import { db } from '../db';
 const router = Router();
 
 router.get('/', async (req: Request, res: Response) => {
-  const { categories, priceMin, priceMax, colors, sizes, sortOrder } = req.query;
+  const { categories, priceMin, priceMax, colors, sizes, sortOrder, query: search } = req.query;
 
   let query = `
     SELECT DISTINCT products.* 
@@ -49,6 +49,11 @@ router.get('/', async (req: Request, res: Response) => {
     query += ' ORDER BY products.price ASC';
   } else if (sortOrder === 'price_desc') {
     query += ' ORDER BY products.price DESC';
+  }
+
+  if (search) {
+    query += ' AND products.name LIKE ?';
+    params.push(`%${search}%`);
   }
 
   const [rows] = await db.execute(query, params);
