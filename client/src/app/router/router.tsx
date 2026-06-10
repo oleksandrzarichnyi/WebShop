@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import HomePage from "../../pages/HomePage/HomePage"
 import CatalogPage from "../../pages/CatalogPage/СatalogPage"
 import ProductPage from "../../pages/ProductPage/ProductPage"
+import AboutUsPage from "../../pages/AboutUsPage/AboutUsPage"
 
 export const Router = () => {
   return (
@@ -10,6 +11,7 @@ export const Router = () => {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/catalog" element={<CatalogPage />}></Route>
         <Route path="/product/:id" element={<ProductPage />}></Route>
+        <Route path="/about" element={<AboutUsPage/>}></Route>
       </Routes>
     </BrowserRouter>
   )

@@ -1,5 +1,4 @@
 import styles from './ProductCard.module.scss'
-import TestImg from '../../shared/assets/images/product-/image.png'
 
 type ProductCartProps = {
   name: string;

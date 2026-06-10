@@ -76,4 +76,15 @@ router.get('/:id', async (req: Request, res: Response) => {
   res.json(rows[0]);
 });
 
+router.get('/:id/sizes', async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const [rows] = await db.execute<any[]>(
+    'SELECT size FROM products_sizes WHERE product_id = ?',
+    [Number(id)]
+  );
+
+  res.json(rows.map((row: any) => row.size));
+});
+
 export default router;

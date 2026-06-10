@@ -1,26 +1,29 @@
 import { useFiltersStore } from '../model/filtersStore'
-import styles from './SizeFilter.module.scss'
+import { SizeButton } from '@/shared/ui';
 
-const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+const SIZES = [
+  { label: 'X-Small', value: 'XS' },
+  { label: 'Small', value: 'S' },
+  { label: 'Medium', value: 'M' },
+  { label: 'Large', value: 'L' },
+  { label: 'X-Large', value: 'XL' },
+  { label: 'XX-Large', value: 'XXL' },
+];
 
 export const SizeFilter = () => {
   const { pendingFilters, toggleSize } = useFiltersStore()
 
   return (
-    <div className={styles['size-filter']}>
-      {SIZES.map((size) => {
-        const isSelected = pendingFilters.sizes.includes(size)
-
-        return (
-          <button
-            key={size}
-            className={`${styles['btn']} ${isSelected ? styles['btn--active'] : ''}`}
-            onClick={() => toggleSize(size)}
-          >
-            {size}
-          </button>
-        )
-      })}
+    <div className="flex flex-wrap gap-[10px]">
+      {SIZES.map(({ label, value }) => (
+        <SizeButton
+          key={value}
+          label={label}
+          isActive={pendingFilters.sizes.includes(value)}
+          isAvailable={true}
+          onClick={() => toggleSize(value)}
+        />
+      ))}
     </div>
   )
 }

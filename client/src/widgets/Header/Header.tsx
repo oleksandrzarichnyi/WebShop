@@ -16,7 +16,7 @@ export default function Header() {
               <Link className={styles["nav-link"]} to="/catalog">SHOP</Link>
             </li>
             <li>
-              <Link className={styles["nav-link"]} to="/catalog">ABOUT US</Link>
+              <Link className={styles["nav-link"]} to="/about">ABOUT US</Link>
             </li>
           </ul>
           <SearchInput />

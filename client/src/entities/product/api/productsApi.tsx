@@ -46,3 +46,8 @@ export async function searchProducts(query: string) {
   const res = await fetch(`${BASE_URL}/products?${params.toString()}`);
   return res.json();
 }
+
+export async function getProductSizes(id: string) {
+  const res = await fetch(`${BASE_URL}/products/${id}/sizes`);
+  return res.json();
+}
