@@ -1,13 +1,13 @@
 import styles from './ProductCard.module.scss'
 
-type ProductCartProps = {
+type ProductCardProps = {
   name: string;
   rating: number;
   price: number;
   imageUrl: string;
 }
 
-export default function ProductCard({ name, rating, price, imageUrl }: ProductCartProps) {
+export default function ProductCard({ name, rating, price, imageUrl }: ProductCardProps) {
   return (
     <div className={styles['card']}>
       <div className="w-full h-[298px] rounded-[20px] bg-[#F0EEED] flex items-center mb-[16px] overflow-hidden">

@@ -5,14 +5,35 @@ import { useProductSizes } from '@/entities/product/api/useProductSizes'
 import { SizeButton } from '@/shared/ui'
 import Button from '@mui/material/Button'
 import styles from './ProductInfo.module.scss'
+import { useCartStore } from '@/features/cart/model/cartStore'
+import CheckIcon from '@mui/icons-material/Check'
 
 const ALL_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 export default function ProductInfo() {
   const { id } = useParams();
   const { data: product, isLoading } = useProduct();
-  const { data: sizes = [] } = useProductSizes(id!)
-  const [selectedSize, setSelectedSize] = useState<string | null>(null)
+  const { data: sizes = [] } = useProductSizes(id!);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const { addToCart, cart } = useCartStore();
+
+  const alreadyInCart = cart.items.some(i => i.id === product.id && i.size === selectedSize);
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert('Please, select a size');
+      return;
+    }
+
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      img_url: product.img_url,
+      size: selectedSize,
+      quantity: 1,
+    });
+  }
 
   if (isLoading) return <p>Loading...</p>;
   if (!product) return <p>Product not found</p>;
@@ -51,6 +72,7 @@ export default function ProductInfo() {
           <Button
             variant="contained"
             fullWidth
+            onClick={alreadyInCart ? undefined : handleAddToCart}
             sx={{
               backgroundColor: '#000000',
               borderRadius: '62px',
@@ -61,9 +83,10 @@ export default function ProductInfo() {
               padding: '14px',
               '&:hover': { backgroundColor: '#333333', boxShadow: 'none' },
               '&:active': { boxShadow: 'none' },
+              lineHeight: 1.5,
             }}
           >
-            Add to Cart
+            {alreadyInCart ? <CheckIcon /> : 'Add To Cart'}
           </Button>
         </div>
       </div>

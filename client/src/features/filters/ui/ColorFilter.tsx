@@ -1,4 +1,3 @@
-
 import { useFiltersStore } from '../model/filtersStore'
 import CheckIcon from '@/shared/assets/icons/check-icon.svg'
 import styles from './ColorFilter.module.scss'
