@@ -1,12 +1,14 @@
 import styles from './Cart.module.scss'
 import { useCartStore } from '@/features/cart/model/cartStore'
 import { Button } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export const OrderSummary = () => {
-  const { cart } = useCartStore();
+  const navigate = useNavigate();
+  const { cart, getSubtotal, getTotal, deliveryFee } = useCartStore();
 
-  const subtotal = cart.items.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
-  const total = subtotal + 15;
+  const subtotal = getSubtotal();
+  const total = getTotal();
 
   return (
     <>
@@ -19,7 +21,7 @@ export const OrderSummary = () => {
           </div>
           <div className="flex justify-between">
             <p className={styles['order-text-secondary']}>Delivery Fee</p>
-            <p className={styles['order-text-primary']}>15$</p>
+            <p className={styles['order-text-primary']}>{deliveryFee}$</p>
           </div>
           <div className="flex justify-between mt-[40px]">
             <p className={styles['order-text-primary']}>{cart.items.length !== 0 && 'Total'}</p>
@@ -30,6 +32,7 @@ export const OrderSummary = () => {
           variant="contained"
           fullWidth
           disabled={cart.items.length === 0}
+          onClick={() => navigate('/checkout')}
           sx={{
             backgroundColor: '#000000',
             borderRadius: '62px',

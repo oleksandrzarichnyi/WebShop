@@ -6,7 +6,7 @@ export default function CatalogPage() {
   return (
     <>
       <Header />
-      <div className="container-default flex gap-[20px]">
+      <div className="container-default flex gap-[20px] pt-[20px]">
         <Filters />
         <ProductList />
       </div>

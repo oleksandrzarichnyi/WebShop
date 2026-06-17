@@ -17,7 +17,7 @@ export default function ProductInfo() {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const { addToCart, cart } = useCartStore();
 
-  const alreadyInCart = cart.items.some(i => i.id === product.id && i.size === selectedSize);
+  const alreadyInCart = cart.items.some(i => i?.id === product?.id && i?.size === selectedSize);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
