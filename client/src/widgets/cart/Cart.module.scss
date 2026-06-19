@@ -1,0 +1,78 @@
+@use '../../shared/styles/variables.scss' as *;
+
+.cart-title {
+  font-family: $font-integral;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.container-cart {
+  padding: 20px 24px;
+  width: fit-content;
+  max-width: 715px;
+  width: 100%;
+}
+
+.container-order {
+  max-width: 505px;
+  width: 100%;
+  margin-top: 135px;
+  padding: 30px 30px;
+  height: fit-content;
+}
+
+.container-order, .container-cart {
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.img-bg {
+  width: 124px;
+  height: 124px;
+  background-color: #F0EEED;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.text-bold {
+  font-family: $font-satoshi;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.text-primary {
+  font-size: 16px;
+  font-family: $font-satoshi;
+  font-weight: 400;
+}
+
+.text-secondary {
+  @extend .text-primary;
+  color: rgba(0, 0, 0, 0.60);
+}
+
+.item-price {
+  font-family: $font-satoshi;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.order-text-bold {
+  @extend .text-bold;
+  font-size: 24px;
+}
+
+.order-text-secondary {
+  @extend .text-secondary;
+  font-size: 20px;
+}
+
+.order-text-primary {
+  @extend .text-primary;
+  color: black;
+  font-size: 20px;
+}

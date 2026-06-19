@@ -4,10 +4,15 @@ import { db } from '../db';
 const router = Router();
 
 router.get('/', async (req: Request, res: Response) => {
-  const { categories, priceMin, priceMax, colors, sizes } = req.query;
+  const { categories, priceMin, priceMax, colors, sizes, sortOrder, query: search } = req.query;
 
-  let query = 'SELECT * FROM products WHERE 1=1'; 
-  const params: (string | number)[] = []
+  let query = `
+    SELECT DISTINCT products.* 
+    FROM products
+    LEFT JOIN products_sizes ON products.id = products_sizes.product_id
+    WHERE 1=1
+  `;
+  const params: (string | number)[] = [];
 
   if (categories) {
     const list = (categories as string).split(',');
@@ -36,12 +41,50 @@ router.get('/', async (req: Request, res: Response) => {
   if (sizes) {
     const list = (sizes as string).split(',');
     const placeholders = list.map(() => '?').join(', ');
-    query += ` AND size IN (${placeholders})`;
+    query += ` AND products_sizes.size IN (${placeholders})`;
     params.push(...list)
+  }
+
+  if (sortOrder === 'price_asc') {
+    query += ' ORDER BY products.price ASC';
+  } else if (sortOrder === 'price_desc') {
+    query += ' ORDER BY products.price DESC';
+  }
+
+  if (search) {
+    query += ' AND products.name LIKE ?';
+    params.push(`%${search}%`);
   }
 
   const [rows] = await db.execute(query, params);
   res.json(rows)
+});
+
+router.get('/:id', async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const [rows] = await db.execute<any[]>(
+    'SELECT * FROM products WHERE id = ?',
+    [Number(id)]
+  );
+
+  if (rows.length === 0) {
+    res.status(404).json({ message: 'Product not found' });
+    return;
+  }
+
+  res.json(rows[0]);
+});
+
+router.get('/:id/sizes', async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  const [rows] = await db.execute<any[]>(
+    'SELECT size FROM products_sizes WHERE product_id = ?',
+    [Number(id)]
+  );
+
+  res.json(rows.map((row: any) => row.size));
 });
 
 export default router;

@@ -1,11 +1,5 @@
 @use '@/shared/styles/variables.scss' as *;
 
-.size-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 .btn {
   height: 39px;
   padding: 0 20px;
@@ -19,10 +13,16 @@
   background-color: #F0F0F0;
   white-space: nowrap;
   transition: background-color 0.15s, color 0.15s;
+  position: relative;
 }
 
 .btn--active {
   background-color: #000000;
   color: #FFFFFF;
   font-weight: 500;
+}
+
+.btn--disabled {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
 }

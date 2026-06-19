@@ -1,0 +1,52 @@
+@use '@/shared/styles/variables.scss' as *;
+
+.layout {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.steps {
+  display: flex;
+  width: 100%;
+}
+
+.step,
+.step--active,
+.step--done {
+  font-family: $font-satoshi;
+  font-size: 16px;
+  padding: 12px 0;
+  border-bottom: 2px solid transparent;
+  flex: 1;
+  text-align: center;
+}
+
+.step {
+  color: rgba(0, 0, 0, 0.4);
+  cursor: not-allowed;
+}
+
+.step--active {
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom-color: #000;
+}
+
+.step--done {
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+
+  &:hover {
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+  }
+}
