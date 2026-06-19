@@ -1,7 +1,7 @@
 import type { ProductFilters } from "@/entities/product";
 import type { SortOrder } from "@/features/sort";
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://webshop-production-305b.up.railway.app';
 
 export async function getProducts(filters: ProductFilters, sortOrder: SortOrder, query: string = '') {
   const params = new URLSearchParams();
