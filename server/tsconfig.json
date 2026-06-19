@@ -4,7 +4,6 @@
     "outDir": "./dist",
 
     "module": "CommonJS",
-    "moduleResolution": "node",
 
     "target": "es2020",
 
